@@ -19,16 +19,16 @@ function comprar() {
 function comprarPista(qtd) {
     let qtdPista = parseInt(document.getElementById('qtd-pista').textContent);
     
-    if (qtd > qtdPista) {
-        alert("Não há ingressos disponíveis nesse setor.");
-
-    } else {
+    if (qtd < qtdPista && qtd > 0 ) {
         qtdPista = qtdPista - qtd;
         document.getElementById('qtd-pista').textContent = qtdPista;
         alert("Compra realizada com sucesso!");
         limpar();
+    } else if (qtd <= 0) { 
+        alert("Valor inválido!");
+    } else if (qtd > qtdPista && qtd > 0) {
+        alert("Não há ingressos disponíveis nesse setor.");
     }
-
 }
 
 // superior
@@ -36,14 +36,15 @@ function comprarPista(qtd) {
 function comprarSuperior(qtd) {
     let qtdSup = parseInt(document.getElementById('qtd-superior').textContent);
     
-    if (qtd > qtdSup) {
-        alert("Não há ingressos disponíveis nesse setor.");
-
-    } else {
+    if (qtd < qtdSup && qtd > 0 ) {
         qtdSup = qtdSup - qtd;
-        document.getElementById('qtd-superior').textContent = qtdSup;
+        document.getElementById('qtd-pista').textContent = qtdSup;
         alert("Compra realizada com sucesso!");
         limpar();
+    } else if (qtd <= 0) { 
+        alert("Valor inválido!");
+    } else if (qtd > qtdSup && qtd > 0) {
+        alert("Não há ingressos disponíveis nesse setor.");
     }
 }
 
@@ -52,16 +53,17 @@ function comprarSuperior(qtd) {
 function comprarInferior(qtd) {
     let qtdInf = parseInt(document.getElementById('qtd-inferior').textContent);
     
-    if (qtd > qtdInf) {
-        alert("Não há ingressos disponíveis nesse setor.");
-
-    } else {
+    if (qtd < qtdInf && qtd > 0 ) {
         qtdInf = qtdInf - qtd;
-        document.getElementById('qtd-inferior').textContent = qtdInf;
+        document.getElementById('qtd-pista').textContent = qtdInf;
         alert("Compra realizada com sucesso!");
         limpar();
+    } else if (qtd <= 0) { 
+        alert("Valor inválido!");
+    } else if (qtd > qtdInf && qtd > 0) {
+        alert("Não há ingressos disponíveis nesse setor.");
     }
-}
+    }
 
 function limpar() {
     document.getElementById('qtd').value = '';
